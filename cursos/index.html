@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Curso de Fotografia</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+    <header class="cabecalho">
+        <a href="../index.html">
+            <img class="cabecalho_logo" src="logotipo_kleber_kawassaki.png" title="Ir para a pagina do Kleber Kawassaki" alt="Kleber Kawassaki">
+        </a>
+
+        <nav>
+            <ul class="cabecalho_menu">
+                <li class="cabecalho_item-menu"><a href="../index.html">Inicio</a></li>
+                <li class="cabecalho_item-menu"><a href="../Kleber Kawassaki agendamenstos/index.html">Agenda</a></li>
+                <li class="cabecalho_item-menu"><a href="../cursos/index.html">Cursos</a></li>
+                <div class="dropdown">
+                  <button class="dropbtn"><li class="cabecalho_item-menu"><a href="../portifolio.html">Portfólio</a></li></button>
+                  <div class="dropdown-content">
+                    <a href="../pre-weeding.html">Pré Wedding</a>
+                    <a href="../pre-weeding.html">Casamentos</a>
+                    <a href="../pre-weeding.html">Corporativos</a>
+                    <a href="../pre-weeding.html">Gestantes</a>
+                    <a href="../pre-weeding.html">Acompanhamentos</a>
+                    <a href="../pre-weeding.html">Debutantes</a>
+                  </div>
+                </div>
+                <li class="cabecalho_item-menu cabecalho_item-menu-contato"><a href="https://api.whatsapp.com/send?phone=5519993058960&text=Ol%C3%A1,%20estava%20visitando%20seu%20site%20e%20me%20interessei%20pelo%20seu%20trabalho.">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+  <main>
+    <section class="intro">
+      <h1>Seja Bem-Vindo</h1>
+      <p class="subtitulo">Seja bem-vindo ao nosso curso de fotografia!</p>
+      <p class="descricao">
+        Nosso objetivo é ensinar desde os conceitos básicos da fotografia até as técnicas e métodos utilizados pelos melhores profissionais da área.
+        Queremos te ajudar a desenvolver suas habilidades e a se tornar um grande fotógrafo, capaz de capturar imagens incríveis com confiança e criatividade.
+      </p>
+      <p class="videos">
+        <strong>Abaixo, você encontrará as video-aulas!</strong><br>
+        Então, pegue seu caderno para anotar, prepare um lanchinho e vamos juntos mergulhar nesse aprendizado!
+      </p>
+    </section>
+
+    <section class="player">
+      <div id="aula-container">
+            <video controls autoplay muted loop id="video">
+                <source src="c.mp4" type="video/mp4">
+            </video>
+        <p id="titulo-aula">Ep. 1: Introdução à Fotografia – Entendendo sua câmera</p>
+      </div>
+
+      <div class="botoes">
+        <button onclick="anteriorAula()">Anterior</button>
+        <button onclick="proximaAula()">Próxima</button>
+      </div>
+    </section>
+
+    <section class="lista">
+      <h2>LISTA DE AULAS</h2>
+      <ul id="lista-aulas">
+        <li>Ep. 1: Introdução à Fotografia – Entendendo sua câmera</li>
+        <li>Ep. 2: Tipos de Câmeras e Lentes – Escolhendo o equipamento ideal</li>
+        <li>Ep. 3: Composição Fotográfica – Enquadramento e regra dos terços</li>
+        <li>Ep. 4: Iluminação – Como usar a luz natural e artificial</li>
+        <li>Ep. 5: Modos da Câmera – Manual, automático e semiautomático</li>
+        <li>Ep. 6: Fotografia em Ambientes Externos – Dicas para luz do dia</li>
+        <li>Ep. 7: Fotografia em Ambientes Internos – Controle de iluminação e sombras</li>
+        <li>Ep. 8: Fotografia de Retrato – Poses, expressão e enquadramento</li>
+        <li>Ep. 9: Fotografia de Paisagem – Como capturar a natureza com impacto</li>
+        <li>Ep. 10: Fotografia Noturna – Longa exposição e uso do tripé</li>
+        <li>Ep. 11: Edição no Lightroom – Ajustes básicos e correção de cores</li>
+        <li>Ep. 12: Edição no Photoshop – Retoques e manipulação de imagens</li>
+        <li>Ep. 13: Estilo Fotográfico – Encontrando sua identidade visual</li>
+        <li>Ep. 14: Portfólio e Redes Sociais – Como divulgar seu trabalho</li>
+        <li>Ep. 15: Dicas Profissionais – Como transformar a fotografia em carreira</li>
+      </ul>
+      <p class="ver-mais">Ver mais...</p>
+    </section>
+  </main>
+
+<footer>
+    <div class="footer-container">
+        <div class="footer-address">
+            <strong>Endereço:</strong><br>
+            <p> Avenida João Osório, 622, loja - Centro<br>
+            São João da Boa Vista / SP</p>
+        </div>
+            <div class="footer-social">
+                <a href="https://www.instagram.com/kleberkawasakifotografia/"><img src="icon/Instagram.png" alt="Instagram"></a>
+                <a href="https://api.whatsapp.com/send?phone=5519993058960&text=Ol%C3%A1,%20estava%20visitando%20seu%20site%20e%20me%20interessei%20pelo%20seu%20trabalho."><img src="icon/image.png" alt="WhatsApp"></a>
+                <a href="https://www.facebook.com/kleberkawasaki?mibextid=ZbWKwL"><img src="icon/Facebook.png" alt="Facebook"></a>
+        </div>
+    </div>
+</footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
