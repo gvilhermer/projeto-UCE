@@ -118,7 +118,7 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 70px 20px 80px;
+    padding: 50px 20px 80px;
 }
 
 main h1 {
@@ -218,13 +218,13 @@ footer {
     left: 0;
     right: 0;
   }
-
+ 
   .footer-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
-  }
+  } 
 
   .footer-address {
     font-size: 14px;
@@ -234,6 +234,10 @@ footer {
   .footer-social {
     display: flex;
     gap: 15px;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 42%;
   }
 
   .footer-social img {
@@ -241,3 +245,26 @@ footer {
     height: 30px;
     color: #fff;
   }
+
+#confirmar{
+    padding: 12px 0;
+    background: #CFAB1C;
+    color: #202020;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: 0.3s;
+    border: none;
+}
+
+#confirmar:hover{
+    background: #e6be20;
+    transform: translateY(-0.5px);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+}
+
+#confirmar:active{
+    transform: scale(0.96);
+    box-shadow: 0 3px 8px rgba(0,0,0,0.3);
+}
