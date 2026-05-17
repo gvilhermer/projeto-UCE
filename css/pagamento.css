@@ -7,8 +7,6 @@
 body {
   background-color: #111;
   color: #fff;
-min-height: 100vh;
-
 
 }
 
@@ -195,11 +193,6 @@ main h1 {
     margin-top: 3px;
 }
 
-
-
-
-
-
 footer {
     background-color: #3A3A3A;
     color: #fff;
@@ -237,7 +230,7 @@ footer {
     justify-content: center;
     align-items: center;
     position: absolute;
-    left: 42%;
+    left: 47%;
   }
 
   .footer-social img {
@@ -249,7 +242,7 @@ footer {
 #confirmar{
     padding: 12px 0;
     background: #CFAB1C;
-    color: #202020;
+    color: #fff;
     font-weight: bold;
     cursor: pointer;
     border-radius: 6px;
