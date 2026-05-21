@@ -1,0 +1,108 @@
+*{
+    box-sizing: border-box;
+}
+
+body{
+  background-color: #202020;
+}
+
+  /* Título da página */
+  .portfolio-titulo {
+    color: white;
+    text-align: center;
+    padding: 40px 10px 120px; /* aumentamos o padding-bottom */
+    margin-bottom: 120px;
+  }
+  
+  
+  .portfolio-titulo h2 {
+    font-weight: normal;
+    font-size: 18px;
+    color: #ccc;
+  }
+  
+  .portfolio-titulo h1 {
+    font-size: 26px;
+    margin-top: 5px;
+
+  }
+  
+  /* Imagem principal */
+  .imagem-principal {
+    text-align: center;
+    z-index: 2;
+    margin-top: -200px; /* sobe a imagem pra cima da borda dourada */
+    position: relative;
+  }
+  
+  .fundo{
+    background-color: #fff;
+    margin-right: 0;
+    border-top: 4px solid #CFAB1C;
+    border-bottom: 4px solid #CFAB1C;
+  }
+
+  .imagem-principal img {
+    width: 40%;
+    max-width: 700px;
+    border-radius: 8px;
+    box-shadow: 0px 8px 30px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Nome + data */
+  .names-titulo {
+    margin: 20px auto 10px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .names-data {
+    text-align: center;
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 20px;
+  }
+  
+  /* Galeria */
+  .galeria {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+    padding: 0 20px 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .galeria img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    object-fit: cover;
+  }
+  
+  /* Veja mais link */
+  .veja-mais {
+    text-align: center;
+    margin: 15px 0 40px;
+  }
+  
+  .veja-mais a {
+    color: #CFAB1C;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s ease;
+  }
+  
+  .veja-mais a:hover {
+    color: white;
+  }
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .galeria {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  
