@@ -1,54 +1,37 @@
-function agendar() {
-    const nome = document.getElementById('nome').value;
-    const servico = document.getElementById('servico').value;
-    const data = document.getElementById('data').value; 
-    const hora = document.getElementById('hora').value;
+
+document.addEventListener("DOMContentLoaded", function () {
+    
+
+    const timeButtons = document.querySelectorAll(".time-btn");
+    
+
+    let selectedTime = document.querySelector(".time-btn.active")?.textContent || "";
+
+    timeButtons.forEach(button => {
+        button.addEventListener("click", function () {
+           
+            document.querySelector(".time-btn.active")?.classList.remove("active");
+            
+           
+            this.classList.add("active");
+            
+         
+            selectedTime = this.textContent;
+
+           
+        });
+    });
 
    
-    if (!nome || !servico || !data || !hora) {
-        alert("⚠️ Preencha todos os campos!");
-        return; 
-    }
+    const confirmButton = document.querySelector(".confirm-btn");
 
-    const lista = document.getElementById('listaAgendamentos'); 
-
-    
-    const timestamp = new Date(`${data}T${hora}`).getTime();
-
-    const card = document.createElement('div');
-    card.className = "agendamento-card"; 
-    card.dataset.timestamp = timestamp; 
-
-   
-    const partesData = data.split("-");
-    const dataBR = `${partesData[2]}/${partesData[1]}/${partesData[0]}`;
-
-    
-    card.innerHTML = `
-        <p><strong>${nome}</strong> agendou <strong>${servico}</strong></p>
-        <p>📅 ${dataBR} ⏰ ${hora}</p>
-    `;
-
-    let inserido = false;
-    const cardsExistentes = lista.querySelectorAll('.agendamento-card');
-    for (let c of cardsExistentes) {
-        if (timestamp < parseInt(c.dataset.timestamp)) {
-            lista.insertBefore(card, c); 
-            inserido = true;
-            break;
+ 
+    confirmButton.addEventListener("click", function () {
+        if (selectedTime) {
+            alert(`Agendamento confirmado para às ${selectedTime}!`);
+        } else {
+            alert("Por favor, selecione um horário antes de confirmar.");
         }
-    }
-    if (!inserido) {
-        lista.appendChild(card); 
-    }
-
-    limparCampos(); 
-}
-
-
-function limparCampos() {
-    document.getElementById('nome').value = '';
-    document.getElementById('servico').value = '';
-    document.getElementById('data').value = '';
-    document.getElementById('hora').value = '';
-}
+    });
+    
+});
