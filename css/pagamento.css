@@ -165,8 +165,18 @@ main h1 {
     transform: translateY(-2px);
 }
 
+.opcao.selecionada {
+    border-color: #CFAB1C !important;
+    box-shadow: 0 4px 20px rgba(40, 167, 69, 0.15);
+}
 
-
+#confirmar:disabled {
+    background: #cccccc !important;
+    color: #666666;
+    cursor: not-allowed;
+    transform: none !important;
+    box-shadow: none !important;
+}
 
 .icone-opcao {
     width: 36px;
@@ -229,7 +239,6 @@ footer {
     gap: 15px;
     justify-content: center;
     align-items: center;
-    position: absolute;
     left: 47%;
   }
 
