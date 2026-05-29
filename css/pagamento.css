@@ -137,6 +137,12 @@ main h1 {
     box-shadow: 0 20px 60px rgba(0,0,0,0.5);
 }
 
+.seta{
+  height: 25px;
+  width: 25px;
+
+}
+
 .card_pag {
     display: flex;
     flex-direction: column;
@@ -249,6 +255,7 @@ footer {
   }
 
 #confirmar{
+  margin-top: 10px;
     padding: 12px 0;
     background: #CFAB1C;
     color: #fff;
