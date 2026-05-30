@@ -12,6 +12,13 @@ body {
   flex-direction: column;
 }
 
+.seta{
+    width: 30px;
+    height: 30px;
+    margin-bottom: 20px;
+
+}
+
 .cabecalho {
     background-color: #3A3A3A;
     color: #fff;
@@ -272,6 +279,7 @@ main h1 {
     padding: 14px 18px;
     font-size: 16px;
     color: #444;
+    margin-bottom: 20px;
 }
 
 .resumo-valor strong {
