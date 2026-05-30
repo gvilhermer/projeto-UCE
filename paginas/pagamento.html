@@ -35,41 +35,92 @@
     </header>
 
 <main>
-    <h1>Formas de pagamento</h1>
+    <h1>Selecione a forma de pagamento</h1>
 
     <div class="card_pag_container">
-
-        <div class="card_pag">
-
-              <!-- PIX -->
-            <div class="opcao">
+       
+        <div class="metodos">
+            <div class="metodo" data-metodo="pix">
                 <img class="icone-opcao" src="/img/icon/pix.png" alt="Pix">
-                <div class="texto">
-                    <h2>Pix</h2>
-                    <p>Pague utilizando pix!</p>
-                </div>
+                <span>Pix</span>
             </div>
-
-            <!-- CARTÃO DE CRÉDITO -->
-            <div class="opcao">
+            <div class="metodo" data-metodo="credito">
                 <img class="icone-opcao" src="/img/icon/cartao.png" alt="Cartão de Crédito">
-                <div class="texto">
-                    <h2>Cartão de Crédito</h2>
-                </div>
-
+                <span>Cartão de Crédito</span>
             </div>
-
-           <div class="opcao">
-    <img class="icone-opcao" src="/img/icon/cartao.png" alt="Cartão de Débito">
-    <div class="texto">
-        <h2>Cartão de Débito</h2>
-    </div>
-
-</div>
-    <button id="confirmar" disabled>Confirmar</button>
+            <div class="metodo" data-metodo="debito">
+                <img class="icone-opcao" src="/img/icon/cartao.png" alt="Cartão de Débito">
+                <span>Cartão de Débito</span>
+            </div>
         </div>
+
+        <div class="form-extra" id="form-pix">
+            <p class="pix-instrucao">Copie a chave abaixo e realize o pagamento pelo seu banco:</p>
+            <div class="pix-chave">
+                <span id="chave-pix">a1b2c3d4-e5f6-7890-abcd-ef1234567890</span>
+                <button type="button" onclick="copiarPix()" class="btn-copiar">Copiar</button>
+            </div>
+        </div>
+
+        <div class="form-extra" id="form-credito">
+            <label>Número do Cartão</label>
+            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="fmtCartao(this)">
+            <label>Nome do Titular</label>
+            <input type="text" placeholder="Como está no cartão">
+            <div class="form-row">
+                <div>
+                    <label>Validade</label>
+                    <input type="text" placeholder="MM/AA" maxlength="5" oninput="fmtValidade(this)">
+                </div>
+                <div>
+                    <label>CVV</label>
+                    <input type="text" placeholder="123" maxlength="3">
+                </div>
+            </div>
+            <label>Parcelas</label>
+            <select>
+                <option>1x de R$ 1500,00 (sem juros)</option>
+                <option>2x de R$ 750,00 (sem juros)</option>
+                <option>3x de R$ 500,00 (sem juros)</option>
+                <option>4x de R$ 375,00 (sem juros)</option>
+                <option>5x de R$ 300,00 (sem juros)</option>
+                <option>6x de R$ 250,00 (sem juros)</option>
+                <option>7x de R$ 214,00 (sem juros)</option>
+                <option>8x de R$ 188,00 (sem juros)</option>
+                <option>9x de R$ 167,00 (sem juros)</option>
+                <option>10x de R$ 150,00 (sem juros)</option>
+                <option>11x de R$ 137,00 (sem juros)</option>
+                <option>12x de R$ 125,00 (sem juros)</option>
+            </select>
+        </div>
+
+        <div class="form-extra" id="form-debito">
+            <label>Número do Cartão</label>
+            <input type="text" placeholder="0000 0000 0000 0000" maxlength="19" oninput="fmtCartao(this)">
+            <label>Nome do Titular</label>
+            <input type="text" placeholder="Como está no cartão">
+            <div class="form-row">
+                <div>
+                    <label>Validade</label>
+                    <input type="text" placeholder="MM/AA" maxlength="5" oninput="fmtValidade(this)">
+                </div>
+                <div>
+                    <label>CVV</label>
+                    <input type="text" placeholder="123" maxlength="3">
+                </div>
+            </div>
+        </div>
+
+        <div class="resumo-valor">
+    <span>Total:</span>
+    <strong>R$ 1500,00</strong>
+</div>
+
+        <button id="confirmar" disabled>Confirmar</button>
+
     </div>
 </main>
+
 <footer>
     <div class="footer-container">
         <div class="footer-address">
