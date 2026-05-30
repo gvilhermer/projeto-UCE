@@ -22,16 +22,30 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
+    const dateItems = document.querySelectorAll(".date-item");
+
+let selectedDate = document.querySelector(".date-item.selected")?.textContent || "";
+
+dateItems.forEach(item => {
+    item.addEventListener("click", function () {
+
+        document.querySelector(".date-item.selected")?.classList.remove("selected");
+
+        this.classList.add("selected");
+
+        selectedDate = this.textContent;
+    });
+});
    
     const confirmButton = document.querySelector(".confirm-btn");
 
  
-    confirmButton.addEventListener("click", function () {
-        if (selectedTime) {
-            alert(`Agendamento confirmado para às ${selectedTime}!`);
-        } else {
-            alert("Por favor, selecione um horário antes de confirmar.");
-        }
-    });
+   confirmButton.addEventListener("click", function () {
+    if (selectedTime && selectedDate) {
+        alert(`Agendamento confirmado para ${selectedDate} às ${selectedTime}!`);
+    } else {
+        alert("Por favor, selecione um dia e horário.");
+    }
+});
     
 });
