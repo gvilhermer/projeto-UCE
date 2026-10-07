@@ -36,26 +36,46 @@
 
     <main class="conteudo-principal">
     
+        <form action="/agendamento/confirmar" method="POST">
     <section class="formulario">
         <h2>📅 Novo Agendamento</h2>
 
-        <input type="text" id="nome" placeholder="Seu nome">
+        <input type="text" id="nome" name="nome" placeholder="Seu nome">
         
         <select id="servico">
             <option value="">Selecione o serviço</option>
             <option value="Seção de Fotos">Seção de Fotos</option>
-            <option value="*">*</option>
-            <option value="*">*</option>
         </select>
 
-        <input type="date" id="data">
-        <input type="time" id="hora">
+        <input type="date" id="data" name="data">
+        
+        <input type="time" id="hora" name="horario">
 
-        <button class="button-agendamento" onclick="agendar()">Agendar</button>
+        <button class="button-agendamento" type="submit">Agendar</button>
+
     </section>
-
+</form>
     <section class="agendamentos" id="listaAgendamentos">
-        <h2>📌 Agendamentos:</h2>
+
+<h2 class="titulo-agendamentos">📌 Agendamentos:</h2>
+
+<div class="lista-agendamentos">
+  {{#each agendamento}}
+  <div class="card-agendamento">
+    <div class="card-topo">
+      <span class="card-id">Agendamento #{{id_agendamento}}</span>
+    </div>
+
+    <div class="card-info">
+      <p><span class="rotulo">👤 Cliente</span> <span class="valor">{{nome_cliente}}</span></p>
+      <p><span class="rotulo">📸 Serviço</span> <span class="valor">{{servico}}</span></p>
+      <p><span class="rotulo">📅 Data</span> <span class="valor">{{data_agendamento}}</span></p>
+      <p><span class="rotulo">🕒 Horário</span> <span class="valor">{{horario_agendamento}}</span></p>
+    </div>
+  </div>
+  {{/each}}
+</div>
+
     </section>
 
     </main>
@@ -75,6 +95,5 @@
             </div>
     </footer>
 
-    <script src="/JS/agendamento.js"></script>
 </body>
 </html>
