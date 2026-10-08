@@ -29,9 +29,9 @@ const checkAuth = function(req, res, next){
 app.engine('html',hbs.engine);
 
 app.set('view engine','html')
-app.set('views',path.join(__dirname,'views','templates'))
+app.set('views',path.join(__dirname,'views'))
 
-app.use(express.static('public'))
+app.use(express.static(path.join(__dirname,'public')))
 
 app.use(express.urlencoded({extended:true}))
 
@@ -49,6 +49,7 @@ conn.query(sql,(erro,resposta)=>{
 
 if(erro){
     console.log(erro);
+    res.status(500).send("Não foi possível consultar os agendamentos.");
 }
 else{
 
@@ -59,7 +60,7 @@ resposta.forEach(agendamento => {
 
     console.log("Cadastros exibidos")
 
-    res.render('agendamento',{
+    res.render('templates/agendamento',{
         agendamento:resposta
     });
 }
@@ -81,6 +82,7 @@ conn.query(sql,[nome,servico,data,horario], erro=>{
 
 if(erro){
     console.log(erro);
+    res.status(500).send("Não foi possível confirmar o agendamento.");
 }
 else{
     console.log("Inserção Realizada")
@@ -89,27 +91,31 @@ else{
 
 })
 
-    })
+})
   
 
-    app.get("/portifolio", function(req, res){
-        res.render('portifolio')
+    app.get('/login', function(req, res){
+        res.render('templates/login')
     })
 
-    app.get("/pre-weeding", function(req, res){
-      res.render('portifolio')
+    app.get('/portifolio', function(req, res){
+        res.render('templates/portifolio')
     })
 
-    app.get("/agendamento", function(req, res){
-        res.render('agendamento')
+    app.get('/pre-weeding', function(req, res){
+      res.render('templates/pre-weeding')
     })
 
-    app.get("/curso", function(req, res){
-        res.render('curso')
+    app.get('/curso', function(req, res){
+        res.render('cursos/cursos')
     })
-        app.get("/", function(req, res){
-        res.render('index')
+        app.get('/', function(req, res){
+        res.render('Pagina_Inicial')
     })
+
+app.use((req,res)=>{
+    res.status(404).render('paginas/404')
+})
 
 const conn = mySql.createConnection({
 

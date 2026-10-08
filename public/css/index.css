@@ -321,6 +321,7 @@ video {
 }
 
 .card-nome {
+    color: #222;
     font-weight: bold;
     margin-top: 10px;
 }
@@ -371,6 +372,7 @@ video {
   }
   
   .card_comentario h3 {
+    color: #222;
     margin: 0;
     font-size: 18px;
     font-weight: bold;
@@ -529,6 +531,7 @@ footer {
 
   /* Nome + data */
   .names-titulo {
+    color: #222;
     margin: 20px auto 10px;
     text-align: center;
     font-weight: bold;
