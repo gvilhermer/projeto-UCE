@@ -481,7 +481,7 @@ body{
 }
 
 .login{
-    width: 100%;
+    width:40%;
     height: 70vh;
 
     display: flex;
@@ -573,8 +573,10 @@ color: black;
     display: flex;
 }
 
-.dados button{
+#btnLogin{
+  display: flex;
     width: 150px;
+    text-align: center;
     margin: 0 auto;
     padding: 14px;
     border: none;
@@ -600,33 +602,7 @@ color: black;
 }
 
 
-.google-login{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    border: 1px solid #999;
-    padding: 10px 15px;
-    border-radius: 10px;
-    cursor: pointer;
-    background-color: white;
-    transition: 0.3s;
-}
 
-.google-login:hover{
-    background-color: #f1f1f1;
-}
-
-.google{
-    width: 22px;
-    height: 22px;
-}
-
-.google-login span{
-    font-size: 16px;
-    color: #111;
-}
-
- 
 .criar{
     font-size: 16px;
     color: #111;
@@ -634,7 +610,8 @@ color: black;
 
 .criar strong{
     cursor: pointer;
-    color: blue;
+    font-weight: bold;
+    color:#CFAB1C;
 }
 
 
@@ -1164,5 +1141,165 @@ input, select {
     font-size: 1.05rem;
     text-align: right;
     white-space: nowrap;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: "Poppins", Arial, sans-serif;
+    background: #1a1a1a;
+    height: 100vh;
+}
+
+.login{
+    width: 100%;
+    height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container{
+    width: 900px;
+    height: 500px;
+
+    display: flex;
+
+    overflow: hidden;
+
+    border-radius: 12px;
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+}
+
+
+.foto{
+    width: 45%;
+    height: 100%;
+}
+
+.img-login{
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    filter: grayscale(100%);
+}
+
+
+.dados{
+    width: 55%;
+    background-color: #696b6d;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+
+.dados h1{
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 35px;
+    font-weight: 400;
+    color: #ffffff;
+}
+
+
+.dados label{
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #ffffff;
+}
+
+.dados input{
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 20px;
+    border: 1px solid #999;
+    border-radius: 5px;
+    font-size: 18px;
+    outline: none;
+    transition: 0.3s;
+}
+
+
+.esqueci{
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+a{
+text-decoration: none;
+color: rgb(255, 255, 255);
+}
+
+
+
+/* .dados button{
+    width: 150px;
+    margin: 0 auto;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #d4af37;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+} */
+
+.dados button:hover{
+
+    transform: scale(1.02);
+}
+
+.bottom{
+    margin-top: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+ 
+.criar{
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.criar strong{
+    cursor: pointer;
+}
+
+
+
+@media(max-width: 850px){
+
+    .login-container{
+        flex-direction: column;
+
+        width: 95%;
+        height: auto;
+    }
+
+    .foto{
+        width: 100%;
+        height: 250px;
+    }
+
+    .dados{
+        width: 100%;
+    }
 }
 
