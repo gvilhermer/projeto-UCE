@@ -573,8 +573,12 @@ color: black;
     display: flex;
 }
 
-#btnLogin{
+#btnLogin,
+.auth-page .auth-button{
   display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.2;
     width: 150px;
     text-align: center;
     margin: 0 auto;
@@ -1300,6 +1304,75 @@ color: rgb(255, 255, 255);
 
     .dados{
         width: 100%;
+    }
+}
+
+
+/* Layout compartilhado pelas páginas de login e cadastro. */
+.auth-page .login {
+    height: auto;
+    min-height: calc(100vh - 240px);
+}
+
+.auth-page .login-container {
+    width: 900px;
+    max-width: 100%;
+    height: auto;
+    min-height: 500px;
+}
+
+.auth-page .foto {
+    position: relative;
+    height: auto;
+    flex-shrink: 0;
+}
+
+.auth-page .img-login {
+    position: absolute;
+    inset: 0;
+}
+
+.auth-page .dados {
+    min-width: 0;
+}
+
+.auth-page .dados form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.auth-page .bottom {
+    justify-content: center;
+    text-align: center;
+}
+
+.auth-page .form-erro {
+    margin-bottom: 20px;
+    padding: 12px;
+    border: 1px solid #CFAB1C;
+    border-radius: 5px;
+    color: #fff;
+    line-height: 1.4;
+}
+
+.auth-page .dados input:focus-visible,
+.auth-page .auth-button:focus-visible {
+    outline: 2px solid #CFAB1C;
+    outline-offset: 3px;
+}
+
+@media (max-width: 850px) {
+    .auth-page .login-container {
+        width: 100%;
+    }
+
+    .auth-page .foto {
+        height: 250px;
+    }
+
+    .auth-page .dados {
+        padding: 32px 24px;
     }
 }
 
