@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "express": "^5.2.1",
     "express-handlebars": "^9.0.2",
     "handlebars": "^4.7.10",
