@@ -3,7 +3,7 @@ const exphbs = require('express-handlebars')
 const app = express()
 const port = 3000
 const authRoutes = require('./routes/auth')
-const bcrypt = require('bcrypt');
+
 
 
 app.use(express.static('public'))
