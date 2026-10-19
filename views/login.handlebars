@@ -14,7 +14,17 @@
 
             <h1>Bem-vindo(a)!</h1>
 
-    <form action="/" method="GET">
+            {{#if erro}}
+            <p style="color: red;">{{erro}}</p>
+            {{/if}}
+
+            {{#if logado}}
+            <p style="color:#CFAB1C; font-size: large; text-align: center;">
+            Você já esta Logado
+            </p>
+            {{/if}}
+
+    <form action="/login/entrar/" method="POST">
             <label for="usuario">Usuário</label>
             <input type="text"
                    id="usuario"

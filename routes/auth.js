@@ -5,7 +5,11 @@ const bcrypt = require('bcrypt');
 
 
 router.get("/", (req, res)=>{
-    res.render('index')
+    const alerta = req.session.alerta;
+    delete req.session.alerta;
+    res.render('index',{
+        alerta:alerta
+    });
 })
 
 router.get("/portifolio/", (req, res)=>{
@@ -16,7 +20,88 @@ router.get("/pre-weeding/", (req, res)=>{
     res.render('pre-weeding')
 })
 
-router.post('/cadastrar/cliente/', (req,res)=>{
+router.post('/sair/',(req,res)=>{
+
+req.session.destroy((erro)=>{
+
+if(erro){
+    console.log(erro);
+    return res.status(500).send("Erro ao sair");
+}
+
+res.clearCookie('connect.sid'); 
+res.redirect('/')
+
+})
+
+
+})
+
+router.post('/login/entrar/',(req,res)=>{
+
+const email = req.body.usuario;
+const senha = req.body.senha;
+
+const sql = 'SELECT id_cliente, email_cliente, senha from clientes WHERE email_cliente = ?'
+
+if(req.session.id_cliente){
+    
+    req.session.alerta = "Você já está logado";
+
+    return res.redirect('/');
+   
+}
+
+pool.query(sql,[email],(erro,resultado)=>{
+
+if(erro){
+    console.log(erro);
+    res.status(404);
+}
+
+else if(resultado == 0){
+    console.log("Usuário não encontrado")
+}
+
+else{
+    console.log("Deu certo");
+}
+
+const senhaUser = resultado[0].senha;
+
+if(bcrypt.compareSync(senha,senhaUser)){
+ 
+    req.session.regenerate((erro)=>{
+        if(erro){
+        console.log(erro);
+        }
+    })
+
+req.session.id_cliente = resultado[0].id_cliente;
+
+req.session.save((erro)=>{
+
+    if(erro){
+        console.log(erro);
+    }
+
+})
+    res.redirect('/');
+    
+}
+else{
+    res.render('login',{
+
+     erro: "Dados Incorretos"   
+
+    })
+}
+    
+})
+
+})
+
+router.post('/cadastrar/cliente/', async (req,res)=>{
    
 const nome = req.body.nome;
 const email = req.body.email;
@@ -24,21 +109,50 @@ const senha = req.body.senha;
 const confirmarSenha = req.body.confirmar;
 const telefone = req.body.telefone;
 
-const senhaProtegida = bcrypt.hash(senha, 12);
+const senhaProtegida = await bcrypt.hash(senha, 12);
 
 const sql = 'INSERT INTO clientes(nome_cliente,email_cliente,senha,telefone) VALUES (?,?,?,?)'
 
 
 if(senha == confirmarSenha){
 
-pool.query(sql,[nome,email,senhaProtegida,telefone], (erro)=>{
+
+pool.query(sql,[nome,email,senhaProtegida,telefone], (erro,resultado)=>{
 
 console.log("Inserção Realizada")
-res.redirect('/portifolio')
+
+if(req.session.id_cliente){
+
+  req.session.alerta = "Cadastro realizado com sucesso";
+
+  return res.redirect('/');
+
+}
 
 if(erro){
     console.log(erro);
 }
+
+req.session.regenerate((erro)=>{
+
+if(erro){
+    console.log(erro);
+}
+
+})
+
+req.session.id_cliente = resultado;
+
+req.session.save((erro)=>{
+
+if(erro){
+    console.log(erro);
+}
+
+})
+res.redirect('/');
+
+
 
 })    
 
