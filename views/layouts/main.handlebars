@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="/css/reset.css"> 
     <link rel="stylesheet" href="/css/index.css">
     <link rel="stylesheet" href="/css/fonte.css">
-    <link rel="stylesheet" href="/css/admin.css">
     <title>{{#if title}}{{title}} | {{/if}}Kleber Kawasaki</title>
 </head>
 <body>
@@ -58,10 +57,10 @@
                     {{/if}}
                     <li><a href="/agendamento/">Agenda</a></li>
                     <li><a href="/curso/">Cursos</a></li>
-                    {{#if user}}
+                    {{#if logado}}
                     <li>
-                        <form action="/logout/" method="post" class="form-sair">
-                            <button type="submit">Sair</button>
+                        <form action="/sair/" class="form-sair" method="POST">
+                        <button type="submit">Sair</button>
                         </form>
                     </li>
                     {{/if}}
@@ -73,8 +72,8 @@
     <!-- fim -->
 
     </header>
-    {{#if flash}}
-    <div class="aviso aviso-{{flash.tipo}}" role="alert">{{flash.texto}}</div>
+    {{#if alerta}}
+    <h1 id="alerta">{{alerta}}</h1>
     {{/if}}
     {{{body}}}
     <footer>
@@ -91,8 +90,19 @@
             </div>
     </div>
 </footer>
-{{#each scripts}}
-<script src="{{this}}" defer></script>
-{{/each}}
+
+<script>
+
+const alerta = document.getElementById('alerta');
+
+
+    if (alerta) {
+        setTimeout(() => {
+            alerta.remove();
+        }, 2000);
+    }
+
+</script>
+
 </body>
 </html>
