@@ -37,6 +37,18 @@ res.redirect('/')
 
 })
 
+const impedirCadastroLogado = (req, res, next) => {
+
+    if(req.session.id_cliente){
+
+        return res.status(403).render('cadastro');
+
+    }
+
+    next();
+
+};
+
 router.post('/login/entrar/',(req,res)=>{
 
 const email = req.body.usuario;
@@ -101,7 +113,9 @@ else{
 
 })
 
-router.post('/cadastrar/cliente/', async (req,res)=>{
+
+
+router.post('/cadastrar/cliente/',impedirCadastroLogado, async (req,res)=>{
    
 const nome = req.body.nome;
 const email = req.body.email;
